@@ -3,15 +3,15 @@
  * Plugin Name: Payment Gateways by User Roles for WooCommerce
  * Plugin URI: https://imaginate-solutions.com/downloads/payment-gateways-by-user-roles-for-woocommerce/
  * Description: Set user roles to include/exclude for WooCommerce payment gateways to show up.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: Imaginate Solutions
  * Author URI: https://imaginate-solutions.com
  * Text Domain: payment-gateways-by-user-roles-for-woocommerce
  * Domain Path: /langs
- * Copyright: © 2023 Imaginate Solutions
- * Requires PHP: 7.0
+ * Copyright: © 2025 Imaginate Solutions
+ * Requires PHP: 8.0
  * WC requires at least: 3.0.0
- * WC tested up to: 8.2
+ * WC tested up to: 9.8
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Alg_WC_Payment_Gateways_By_User_Roles' ) ) :
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '1.3.0';
+		public $version = '1.4.0';
 
 		/**
 		 * Plugin Instance.
@@ -149,12 +149,18 @@ if ( ! class_exists( 'Alg_WC_Payment_Gateways_By_User_Roles' ) ) :
 			// Settings.
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 			require_once 'includes/settings/class-alg-wc-payment-gateways-by-user-roles-settings-section.php';
+			add_action( 'init', array( $this, 'pgur_load_general_settings' ), 20 );
 			$this->settings            = array();
-			$this->settings['general'] = require_once 'includes/settings/class-alg-wc-payment-gateways-by-user-roles-settings-general.php';
+			//$this->settings['general'] = require_once 'includes/settings/class-alg-wc-payment-gateways-by-user-roles-settings-general.php';
 			// Version update.
 			if ( get_option( 'alg_wc_payment_gateways_by_user_roles_version', '' ) !== $this->version ) {
 				add_action( 'admin_init', array( $this, 'version_updated' ) );
 			}
+		}
+
+		function pgur_load_general_settings() {
+			require_once 'includes/settings/class-alg-wc-payment-gateways-by-user-roles-settings-general.php';
+			Alg_WC_Payment_Gateways_By_User_Roles::instance()->settings['general'] = new Alg_WC_Payment_Gateways_By_User_Roles_Settings_General();
 		}
 
 		/**

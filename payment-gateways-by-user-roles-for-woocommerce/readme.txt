@@ -2,8 +2,8 @@
 Contributors: imagisol, dhruvin
 Tags: woocommerce, payment gateway, user role, role based checkout, role based gateways, role based payments, paypal, cod, bacs, cheque payments, custom user roles, stripe, rule based checkout, custom payment gateway
 Requires at least: 4.4
-Tested up to: 6.6
-Stable tag: 1.3.0
+Tested up to: 6.8
+Stable tag: 1.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,10 @@ With this plugin you can set user roles for four standard WooCommerce payment ga
 2. Include or Exclude certain payment gateways for certain users.
 
 == Changelog ==
+
+= 1.4.0 - 04/06/2025 =
+* Fixed an issue related to string translation causing fatal errors.
+* Tested up to  WC 9.8
 
 = 1.3.0 - 11/10/2023 =
 * HPOS Compatibility added
