@@ -2,7 +2,7 @@
 Contributors: imagisol, dhruvin
 Tags: woocommerce, payment gateway, user role, role based checkout, role based gateways, role based payments, paypal, cod, bacs, cheque payments, custom user roles, stripe, rule based checkout, custom payment gateway
 Requires at least: 4.4
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 1.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
